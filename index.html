@@ -1,1 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Nacar Apps | Mobile Apps & Games</title>
+
+    <meta
+        name="description"
+        content="Nacar Apps develops mobile applications and games for Android and iOS."
+    >
+
+    <!--
+        GOOGLE SEARCH CONSOLE VERIFICATION
+        We will paste Google's verification tag here later.
+        Do not change anything here for now.
+    -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: #070b14;
+            color: #f4f7fb;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+        nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            background:
+                linear-gradient(
+                    135deg,
+                    #3c7cff,
+                    #725cff
+                );
+            box-shadow:
+                0 10px 30px
+                rgba(72, 103, 255, 0.35);
+        }
+
+        nav .links {
+            display: flex;
+            gap: 26px;
+            font-size: 14px;
+            color: #b7c0d1;
+        }
+
+        nav .links a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(64, 99, 255, 0.19),
+                    transparent 65%
+                );
+            right: -160px;
+            top: -90px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 750px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 12px;
+            border: 1px solid #263249;
+            border-radius: 999px;
+            color: #9fb6ff;
+            font-size: 13px;
+            margin-bottom: 22px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 82px);
+            line-height: 1.02;
+            letter-spacing: -3px;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    #7aa2ff,
+                    #9980ff
+                );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: #aab4c6;
+            font-size: 19px;
+            max-width: 620px;
+        }
+
+        .hero-actions {
+            margin-top: 34px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
+            padding: 13px 20px;
+            border-radius: 11px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .button-primary {
+            background: white;
+            color: #101522;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid #2a354b;
+            color: #d5dcea;
+        }
+
+        .button-secondary:hover {
+            border-color: #53627d;
+        }
+
+        section {
+            padding: 85px 0;
+        }
+
+        .section-label {
+            color: #7899ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 34px;
+            letter-spacing: -1.2px;
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            color: #a7b0c0;
+            max-width: 650px;
+        }
+
+        .app-card {
+            margin-top: 40px;
+            border: 1px solid #202b40;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.015)
+                );
+            border-radius: 22px;
+            padding: 34px;
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .app-icon {
+            min-width: 82px;
+            width: 82px;
+            height: 82px;
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            font-size: 35px;
+            font-weight: 800;
+            background:
+                linear-gradient(
+                    135deg,
+                    #173a7d,
+                    #3868e9
+                );
+            box-shadow:
+                0 16px 36px
+                rgba(32, 86, 210, 0.25);
+        }
+
+        .app-info h3 {
+            font-size: 24px;
+            margin-bottom: 7px;
+        }
+
+        .app-info p {
+            color: #9fa9bb;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            border: 1px solid #202b40;
+            border-radius: 18px;
+            padding: 28px;
+            background: rgba(255,255,255,0.018);
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-card p {
+            color: #9fa9bb;
+            font-size: 15px;
+        }
+
+        .contact-box {
+            margin-top: 35px;
+            border: 1px solid #27334a;
+            border-radius: 18px;
+            padding: 30px;
+            background: #0b111e;
+        }
+
+        .contact-box p {
+            color: #aab3c4;
+            margin-bottom: 14px;
+        }
+
+        .email {
+            font-weight: 600;
+            color: #8fabff;
+        }
+
+        footer {
+            border-top: 1px solid #1c2638;
+            padding: 35px 0 45px;
+            color: #7f899b;
+            font-size: 13px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: flex-end;
+        }
+
+        .legal-name {
+            color: #b8c0cf;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 700px) {
+            nav .links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 520px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="container">
+    <nav>
+        <a class="brand" href="#">
+            <div class="logo">N</div>
+            <span>Nacar Apps</span>
+        </a>
+
+        <div class="links">
+            <a href="#apps">Apps</a>
+            <a href="#about">About</a>
+            <a href="#support">Support</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container hero-content">
+
+            <div class="eyebrow">
+                Mobile Apps & Games
+            </div>
+
+            <h1>
+                Building enjoyable
+                <span class="gradient-text">
+                    digital experiences.
+                </span>
+            </h1>
+
+            <p>
+                Nacar Apps develops mobile applications and games
+                designed for Android and iOS.
+            </p>
+
+            <div class="hero-actions">
+                <a
+                    class="button button-primary"
+                    href="#apps"
+                >
+                    Explore our apps
+                </a>
+
+                <a
+                    class="button button-secondary"
+                    href="#support"
+                >
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="apps">
+        <div class="container">
+
+            <div class="section-label">
+                Our Apps
+            </div>
+
+            <h2>Products we build</h2>
+
+            <p class="section-description">
+                Mobile experiences designed to be simple,
+                engaging and easy to use.
+            </p>
+
+            <div class="app-card">
+
+                <div class="app-icon">
+                    Q
+                </div>
+
+                <div class="app-info">
+                    <h3>Quiz Flux</h3>
+
+                    <p>
+                        A mobile quiz experience available
+                        for Android and iOS.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="about">
+        <div class="container">
+
+            <div class="section-label">
+                About
+            </div>
+
+            <h2>Independent mobile development</h2>
+
+            <p class="section-description">
+                Nacar Apps is focused on creating mobile
+                applications and games with an emphasis on
+                usability, performance and enjoyable user
+                experiences.
+            </p>
+
+            <div class="grid">
+
+                <div class="info-card">
+                    <h3>Android</h3>
+                    <p>
+                        Applications and games designed for
+                        Android devices and distributed through
+                        Google Play.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>iOS</h3>
+                    <p>
+                        Mobile experiences developed for
+                        iPhone and distributed through
+                        Apple's App Store.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="support">
+        <div class="container">
+
+            <div class="section-label">
+                Support
+            </div>
+
+            <h2>Need help?</h2>
+
+            <p class="section-description">
+                For application support, business enquiries
+                or other questions, contact us by email.
+            </p>
+
+            <div class="contact-box">
+
+                <p>
+                    Contact email
+                </p>
+
+                <a
+                    class="email"
+                    href="mailto:nacar.dev@gmail.com"
+                >
+                    nacar.dev@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="container footer-content">
+
+        <div>
+            <div class="legal-name">
+                İzzet Nacar
+            </div>
+
+            <div>
+                Nacar Apps is a developer brand operated
+                by İzzet Nacar.
+            </div>
+
+            <div>
+                Türkiye
+            </div>
+        </div>
+
+        <div>
+            © 2026 Nacar Apps. All rights reserved.
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
